@@ -15,6 +15,13 @@ import java.util.List;
 public interface ReportShowService {
 	ReportGroup getReportGroupById(String groupCode);
 
-	List<ReportLet> searchReportLets();
+	List<ReportLet> getReportLets();
 
+	List<ReportContent> getReportContentByGroup(String groupCode, String nodeCode, String dataDate);
+
+	/**
+	 * @param dataDate
+	 * @return
+	 */
+	List<ReportCacheInfo> getReportCacheInfoList(String dataDate);
 }

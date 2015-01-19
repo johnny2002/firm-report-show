@@ -3,7 +3,9 @@ package com.ibm.gbsc.firm.reportshow;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.ibm.banking.framework.util.DateUtilsExt;
+import org.apache.commons.lang3.time.DateUtils;
+
+import com.ibm.gbsc.utils.util.DateUtilsExt;
 
 public enum ReportFreqence {
 	YEAR {
@@ -104,12 +106,12 @@ public enum ReportFreqence {
 	DAILY {
 		@Override
 		public Date roundReportDate(Date date, int dataPeriods) {
-			return dataPeriods == 0 ? date : DateUtilsExt.addDays(date, -dataPeriods);
+			return dataPeriods == 0 ? date : DateUtils.addDays(date, -dataPeriods);
 		}
 	};
 	/**
 	 * 将输入的报告日期规约到最近的上一报告期末日期，如输入报告日期为2012-05-31，季度报表的日期应该为2012-03-31
-	 * 
+	 *
 	 * @param date
 	 *            选择的报告日期
 	 * @param dataPeriods

@@ -11,7 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.QueryHint;
 import javax.persistence.Table;
+
+import com.ibm.gbsc.utils.vo.AuditVO;
 
 /**
  * 类作用：报表展示内容
@@ -20,12 +25,24 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "FR_T_RPT_SHOW_LET_CONTENT")
-public class ReportContent {
+@NamedQueries({
+        @NamedQuery(name = "ReportContent.byGroup", query = "select rc from ReportContent rc where rc.dataDate= :dataDate and "
+                + "rc.nodeCode = :nodeCode and rc.reportLet in "
+                + "(SELECT rl.reportCode FROM  ReportGroup rg, IN (rg.reportLets) rl WHERE rg.groupCode = :groupCode)", hints = {
+                @QueryHint(name = "org.hibernate.readOnly", value = "true"), @QueryHint(name = "org.hibernate.cacheable", value = "true") }),
+        @NamedQuery(name = "ReportContent.cacheInfoByDate", query = "SELECT rl, rc FROM ReportContent rc RIGHT JOIN rc.reportLet rl "
+                + "on rc.dataDate = :dataDate order by rl.seq", hints = { @QueryHint(name = "org.hibernate.readOnly", value = "true"),
+                @QueryHint(name = "org.hibernate.cacheable", value = "true") }) })
+public class ReportContent extends AuditVO {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -6907496568557668441L;
 	private Long id;
 	/**
-	 * 报表日期，如20140930
+	 * 报表数据日期，如20140930
 	 */
-	private String reportDate;
+	private String dataDate;
 	/**
 	 * 机构代码
 	 */
@@ -49,6 +66,7 @@ public class ReportContent {
 	/**
 	 * @return the id
 	 */
+	@Override
 	@Id
 	@GeneratedValue
 	public Long getId() {
@@ -66,16 +84,16 @@ public class ReportContent {
 	/**
 	 * @return the reportDate
 	 */
-	public String getReportDate() {
-		return reportDate;
+	public String getDataDate() {
+		return dataDate;
 	}
 
 	/**
 	 * @param reportDate
 	 *            the reportDate to set
 	 */
-	public void setReportDate(String reportDate) {
-		this.reportDate = reportDate;
+	public void setDataDate(String reportDate) {
+		this.dataDate = reportDate;
 	}
 
 	/**

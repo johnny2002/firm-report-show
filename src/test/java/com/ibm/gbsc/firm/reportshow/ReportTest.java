@@ -1,5 +1,7 @@
 package com.ibm.gbsc.firm.reportshow;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -28,5 +30,19 @@ public class ReportTest extends AbstractTransactionalTestNGSpringContextTests {
 			System.out.println(let);
 			System.out.println(let == null ? "null" : let.getReportCode());
 		}
+	}
+
+	@Test
+	public void testReportContent() {
+		List resultList = em.createNamedQuery("ReportContent.byGroup").setParameter("dataDate", "20141231")
+		        .setParameter("nodeCode", "0000").setParameter("groupCode", "G_CREDIT").getResultList();
+		System.out.println("size:" + resultList.size());
+	}
+
+	@Test
+	public void testReportCacheInfo() {
+		String jql = "SELECT rc, rl FROM ReportContent rc RIGHT JOIN rc.reportLet rl on rc.dataDate = '20141231' order by rl.seq";
+		List resultList = em.createQuery(jql).getResultList();
+		System.out.println("size:" + resultList.size());
 	}
 }

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.QueryHint;
 import javax.persistence.Table;
 
 /**
@@ -18,6 +20,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "FR_T_RPT_SHOW_LET")
+@NamedQuery(name = "ReportLet.all", query = "from ReportLet tl", hints = { @QueryHint(name = "org.hibernate.readOnly", value = "true"),
+        @QueryHint(name = "org.hibernate.cacheable", value = "true") })
 public class ReportLet {
 	/**
 	 * 报表唯一编码
@@ -87,7 +91,7 @@ public class ReportLet {
 	/**
 	 * 是否需要审批
 	 */
-	private boolean approveRequired;
+	private boolean approvalRequired;
 	/**
 	 * 是否允许评论
 	 */
@@ -297,16 +301,16 @@ public class ReportLet {
 	/**
 	 * @return the approveRequired
 	 */
-	public boolean isApproveRequired() {
-		return approveRequired;
+	public boolean isApprovalRequired() {
+		return approvalRequired;
 	}
 
 	/**
 	 * @param approveRequired
 	 *            the approveRequired to set
 	 */
-	public void setApproveRequired(boolean approveRequired) {
-		this.approveRequired = approveRequired;
+	public void setApprovalRequired(boolean approveRequired) {
+		this.approvalRequired = approveRequired;
 	}
 
 	/**
