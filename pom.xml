@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ibm.gbsc.firm</groupId>
+	<artifactId>firm-report-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>com.ibm.gbsc</groupId>
+		<artifactId>gbsc-parent</artifactId>
+		<version>1.0.7-SNAPSHOT</version>
+	</parent>
+	<modules>
+		<module>firm-report-adapter-api</module>
+		<module>firm-report-adapter-cognos</module>
+		<module>firm-report-show</module>
+	</modules>
+
+	<properties>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.ibm.gbsc.firm</groupId>
+				<artifactId>firm-report-adapter-api</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<!-- provider dependency -->
+			<dependency>
+				<groupId>com.ibm.cognos.developer</groupId>
+				<artifactId>congnos-client</artifactId>
+				<version>10.1.4707.500</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibm.banking</groupId>
+				<artifactId>banking-auth</artifactId>
+				<version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-math3</artifactId>
+				<version>3.4.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.3.2</version>
+			</dependency>
+			<dependency>
+				<groupId>displaytag</groupId>
+				<artifactId>displaytag</artifactId>
+				<version>1.4.RI</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>jcl104-over-slf4j</artifactId>
+						<groupId>org.slf4j</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<scm>
+		<url>https://github.com/johnny2002/firm-report-show</url>
+		<connection>scm:git:https://github.com/johnny2002/firm-report-show</connection>
+	</scm>
+</project>
