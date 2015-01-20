@@ -23,6 +23,7 @@
 
 	<dependencyManagement>
 		<dependencies>
+<<<<<<< HEAD
 			<dependency>
 				<groupId>com.ibm.gbsc.firm</groupId>
 				<artifactId>firm-report-adapter-api</artifactId>
@@ -38,6 +39,8 @@
 				<artifactId>commons-lang3</artifactId>
 				<version>3.3.2</version>
 			</dependency>
+=======
+>>>>>>> refs/remotes/origin/master
 			<!-- provider dependency -->
 			<dependency>
 				<groupId>com.ibm.cognos.developer</groupId>
