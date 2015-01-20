@@ -5,6 +5,7 @@
 
 package com.ibm.gbsc.firm.reportshow;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +34,7 @@ import com.ibm.gbsc.utils.vo.AuditVO;
         @NamedQuery(name = "ReportContent.cacheInfoByDate", query = "SELECT rl, rc FROM ReportContent rc RIGHT JOIN rc.reportLet rl "
                 + "on rc.dataDate = :dataDate order by rl.seq", hints = { @QueryHint(name = "org.hibernate.readOnly", value = "true"),
                 @QueryHint(name = "org.hibernate.cacheable", value = "true") }) })
+@Cacheable
 public class ReportContent extends AuditVO {
 	/**
 	 *

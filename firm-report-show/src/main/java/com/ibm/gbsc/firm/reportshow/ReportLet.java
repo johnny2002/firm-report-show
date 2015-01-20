@@ -5,6 +5,7 @@
 
 package com.ibm.gbsc.firm.reportshow;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -22,6 +23,7 @@ import javax.persistence.Table;
 @Table(name = "FR_T_RPT_SHOW_LET")
 @NamedQuery(name = "ReportLet.all", query = "from ReportLet tl", hints = { @QueryHint(name = "org.hibernate.readOnly", value = "true"),
         @QueryHint(name = "org.hibernate.cacheable", value = "true") })
+@Cacheable
 public class ReportLet {
 	/**
 	 * 报表唯一编码

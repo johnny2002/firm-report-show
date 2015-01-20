@@ -7,6 +7,7 @@ package com.ibm.gbsc.firm.reportshow;
 
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,6 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "FR_T_RPT_SHOW_GROUP")
+@Cacheable
 public class ReportGroup {
 	private String groupCode;
 	private String groupName;
