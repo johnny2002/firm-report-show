@@ -21,13 +21,10 @@
 
 	<dependencies>
 		<dependency>
-<<<<<<< HEAD
 			<groupId>com.ibm.gbsc.firm</groupId>
 			<artifactId>firm-report-adapter-api</artifactId>
 		</dependency>
 		<dependency>
-=======
->>>>>>> refs/remotes/origin/master
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<optional>true</optional>

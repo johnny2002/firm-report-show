@@ -17,7 +17,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.QueryHint;
 import javax.persistence.Table;
 
-import com.ibm.gbsc.utils.vo.AuditVO;
+import com.ibm.gbsc.common.vo.AuditVO;
 
 /**
  * 类作用：报表展示内容
@@ -25,7 +25,7 @@ import com.ibm.gbsc.utils.vo.AuditVO;
  * @author Johnny@cn.ibm.com 使用说明：
  */
 @Entity
-@Table(name = "FR_T_RPT_SHOW_LET_CONTENT")
+@Table(name = "FM_RPT_SHOW_LET_CONTENT")
 @NamedQueries({
         @NamedQuery(name = "ReportContent.byGroup", query = "select rc from ReportContent rc where rc.dataDate= :dataDate and "
                 + "rc.nodeCode = :nodeCode and rc.reportLet in "

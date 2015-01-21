@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author Johnny@cn.ibm.com 使用说明：
  */
 @Entity
-@Table(name = "FR_T_RPT_SHOW_LET")
+@Table(name = "FM_RPT_SHOW_LET")
 @NamedQuery(name = "ReportLet.all", query = "from ReportLet tl", hints = { @QueryHint(name = "org.hibernate.readOnly", value = "true"),
         @QueryHint(name = "org.hibernate.cacheable", value = "true") })
 @Cacheable

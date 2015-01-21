@@ -5,7 +5,7 @@ import java.util.Date;
 
 import org.apache.commons.lang3.time.DateUtils;
 
-import com.ibm.gbsc.utils.util.DateUtilsExt;
+import com.ibm.gbsc.common.util.DateUtilsExt;
 
 public enum ReportFreqence {
 	YEAR {

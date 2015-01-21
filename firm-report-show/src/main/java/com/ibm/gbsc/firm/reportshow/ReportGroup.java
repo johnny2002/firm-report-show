@@ -21,7 +21,7 @@ import javax.persistence.Table;
  * @author Johnny@cn.ibm.com 使用说明：
  */
 @Entity
-@Table(name = "FR_T_RPT_SHOW_GROUP")
+@Table(name = "FM_RPT_SHOW_GROUP")
 @Cacheable
 public class ReportGroup {
 	private String groupCode;
@@ -63,7 +63,7 @@ public class ReportGroup {
 	 * @return the reportLets
 	 */
 	@ManyToMany
-	@JoinTable(name = "FR_V_RPT_SHOW_GROUP_LET", joinColumns = { @JoinColumn(name = "GROUP_CODE") }, inverseJoinColumns = { @JoinColumn(name = "REPORT_CODE") })
+	@JoinTable(name = "FM_RPT_SHOW_GROUP_LET", joinColumns = { @JoinColumn(name = "GROUP_CODE") }, inverseJoinColumns = { @JoinColumn(name = "REPORT_CODE") })
 	public List<ReportLet> getReportLets() {
 		return reportLets;
 	}
