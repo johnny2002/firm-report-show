@@ -21,10 +21,10 @@ public class ReportTest extends AbstractTransactionalTestNGSpringContextTests {
 	private EntityManager em;
 
 	/**
-	 * Rigourous Test :-)
+	 * ReportGroup Test
 	 */
 	@Test
-	public void testApp() {
+	public void testReportGroup() {
 		ReportGroup grp = em.find(ReportGroup.class, "G_CREDIT");
 		for (ReportLet let : grp.getReportLets()) {
 			System.out.println(let);
