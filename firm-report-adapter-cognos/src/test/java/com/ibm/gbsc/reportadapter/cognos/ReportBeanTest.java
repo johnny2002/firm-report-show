@@ -13,8 +13,8 @@ import com.ibm.gbsc.reportadapter.cognos.ReportParameter;
 @ContextConfiguration(locations = { "classpath:test-irmp-report-dao.xml", "classpath:test-irmp-report-res.xml" })
 @TransactionConfiguration(defaultRollback = false)
 public class ReportBeanTest extends AbstractTestNGSpringContextTests{
-	@Autowired ReportBean reportBean;
-	@Autowired CMBean cmBean;
+	@Inject ReportBean reportBean;
+	@Inject CMBean cmBean;
 	
 	@Test
 	public void testReportRun() throws Exception{

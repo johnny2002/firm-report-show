@@ -7,10 +7,10 @@ package com.ibm.gbsc.firm.web.reportshow;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +29,7 @@ import com.ibm.gbsc.firm.reportshow.ReportShowService;
 @Controller
 @RequestMapping("/report-show")
 public class ReportShowController {
-	@Autowired
+	@Inject
 	ReportShowService reportShowService;
 
 	@RequestMapping(value = "/groups/{group}", method = RequestMethod.GET)
